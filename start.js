@@ -1,10 +1,7 @@
 const path = require('path');
 const express = require('express');
 
-console.log(`Your port is ${process.env.PORT}`); // undefined
-const dotenv = require('dotenv');
-dotenv.config();
-console.log(`Your port is ${process.env.PORT}`); // 8626
+console.log(`Your port is ${process.env.PORT}`); // 
 console.log(`Your callback is ${process.env.FORGE_CALLBACK_URL}`);
 
 
