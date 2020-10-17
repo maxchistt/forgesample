@@ -23,7 +23,7 @@ function onDocumentLoadSuccess(doc) {
   viewer.loadDocumentNode(doc, viewables).then(i => {
     // documented loaded, any action?
     viewer.setLightPreset(2);
-    viewer.setDisplayEdges(true);
+    viewer.setDisplayEdges(false);
     
   });
 }
