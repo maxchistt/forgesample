@@ -22,7 +22,8 @@ function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then(i => {
     // documented loaded, any action?
-    viewer.setLightPreset(3);
+    viewer.setLightPreset(2);
+    viewer.setDisplayEdges(true);
     
   });
 }
