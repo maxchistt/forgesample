@@ -20,12 +20,28 @@ function launchViewer(urn) {
 
 function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
-  viewer.loadDocumentNode(doc, viewables).then(i => {
+  viewer.loadDocumentNode(doc, viewables).then((i) => {
     // documented loaded, any action?
-    viewer.setLightPreset(2);
-    viewer.setDisplayEdges(true);
-    
+    viewer.setLightPreset(10);
+    //viewer.setDisplayEdges(true);
+    let preset = 0;
+
+    function changeBG(){
+      viewer.setLightPreset(preset);
+      preset++;
+    }
+
+    // повторить с интервалом 2 секунды
+    let timerId = setInterval(changeBG, 3000);
+
+    // остановить вывод через 5 секунд
+    setTimeout(() => {
+      clearInterval(timerId);
+      alert("stop");
+    }, (16*3000));
+
   });
+
 }
 
 function onDocumentLoadFailure(viewerErrorCode) {
