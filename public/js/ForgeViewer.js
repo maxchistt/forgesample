@@ -12,9 +12,9 @@ function launchViewer(urn) {
     var documentId = 'urn:' + urn;
     Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
 
-    viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, (e) => { // Функция, срабатывает после полной загрузки модели
+    /*viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, (e) => { // Функция, срабатывает после полной загрузки модели
       viewer.setLightPreset(0); // Сделать фон серым
-    });
+    });*/
   });
 }
 
@@ -22,7 +22,7 @@ function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then(i => {
     // documented loaded, any action?
-    viewer.setLightPreset(0);
+    viewer.setLightPreset(3);
     
   });
 }
