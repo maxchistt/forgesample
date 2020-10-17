@@ -13,7 +13,7 @@ function launchViewer(urn) {
     Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
 
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, (e) => { // Функция, срабатывает после полной загрузки модели
-      viewer.setLightPreset(1); // Сделать фон серым
+      viewer.setLightPreset(0); // Сделать фон серым
     });
   });
 }
@@ -22,7 +22,7 @@ function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then(i => {
     // documented loaded, any action?
-    viewer.setLightPreset(1);
+    viewer.setLightPreset(0);
   });
 }
 
