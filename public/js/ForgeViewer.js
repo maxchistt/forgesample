@@ -12,9 +12,7 @@ function launchViewer(urn) {
     var documentId = 'urn:' + urn;
     Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
 
-    /*viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, (e) => { // Функция, срабатывает после полной загрузки модели
-      viewer.setLightPreset(0); // Сделать фон серым
-    });*/
+    
   });
 }
 
@@ -22,23 +20,33 @@ function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then((i) => {
     // documented loaded, any action?
-    viewer.setLightPreset(10);
-    //viewer.setDisplayEdges(true);
-    let preset = 0;
+    
+    let preset = 1;
+    changeBG(false);
 
-    function changeBG(){
+    function changeBG(bool){
+      if(bool){
+        if(preset<=16)preset++;
+      } else {
+        if(preset>=0)preset--;
+      }
+      $('#bg').text(preset);
       viewer.setLightPreset(preset);
-      preset++;
+      
     }
 
-    // повторить с интервалом 2 секунды
-    let timerId = setInterval(changeBG, 3000);
+    $('#+bg').click(function () {
+      changeBG(true);
+    });
+    $('#-bg').click(function () {
+      changeBG(false);
+    });
 
-    // остановить вывод через 5 секунд
-    setTimeout(() => {
-      clearInterval(timerId);
-      alert("stop");
-    }, (16*3000));
+    let edgbool=true;
+
+    $('#edges').click(function () {
+      viewer.setDisplayEdges(edgbool=!edgbool);
+    });
 
   });
 
