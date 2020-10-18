@@ -13,21 +13,24 @@ function changeBG(bool) {
   viewer.setLightPreset(preset);
 }
 
-$('#bgPlus').click(function (e) { 
-  e.preventDefault();
-  alert("bg+");
-  console.log("bg+");
+$(document).ready(()=>{
+  $('#bgPlus').click(function (e) { 
+    e.preventDefault();
+    console.log("bg+");
+    changeBG(true);
+  });
+  
+  $('#bgMinus').click(() => {
+    changeBG(false);
+    console.log("bg-");
+  });
+  
+  $('#edges').click(function () {
+    viewer.setDisplayEdges((edgbool = !edgbool));
+    console.log("edges");
+  });
 });
 
-$('#bgMinus').click(() => {
-  changeBG(false);
-  console.log("bg-");
-});
-
-$('#edges').click(function () {
-  viewer.setDisplayEdges((edgbool = !edgbool));
-  console.log("edges");
-});
 
 
 function launchViewer(urn) {
