@@ -5,11 +5,11 @@ let edgbool = true;
 
 function changeBG(bool) {
   if (bool) {
-    //if (preset < 16) preset++;
-    preset++;
+    if (preset < 18) preset++;
+    //preset++;
   } else {
-    //if (preset > 0) preset--;
-    preset--;
+    if (preset > 0) preset--;
+    //preset--;
   }
   $("#bg").text(preset);
   viewer.setLightPreset(preset);
