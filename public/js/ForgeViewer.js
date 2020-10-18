@@ -1,5 +1,34 @@
 var viewer;
 
+let preset = 1;
+let edgbool = true;
+
+function changeBG(bool) {
+  if (bool) {
+    if (preset <= 16) preset++;
+  } else {
+    if (preset >= 0) preset--;
+  }
+  $("#bg").text(preset);
+  viewer.setLightPreset(preset);
+}
+
+$("#+bg").click(() => {
+  changeBG(true);
+  console.log("bg+");
+});
+
+$("#-bg").click(() => {
+  changeBG(false);
+  console.log("bg-");
+});
+
+$("#edges").click(function () {
+  viewer.setDisplayEdges((edgbool = !edgbool));
+  console.log("edges");
+});
+
+
 function launchViewer(urn) {
   var options = {
     env: 'AutodeskProduction',
@@ -20,36 +49,8 @@ function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then((i) => {
     // documented loaded, any action?
-    
-    let preset = 1;
     changeBG(false);
-
-    function changeBG(bool){
-      if(bool){
-        if(preset<=16)preset++;
-      } else {
-        if(preset>=0)preset--;
-      }
-      $('#bg').text(preset);
-      viewer.setLightPreset(preset);
-    }
-
-    $("#+bg").click(() => {
-      changeBG(true);
-      console.log("bg+");
-    });
-
-    $("#-bg").click(() => {
-      changeBG(false);
-      console.log("bg-");
-    });
-
-    let edgbool=true;
-
-    $('#edges').click(function () {
-      viewer.setDisplayEdges(edgbool=!edgbool);
-    });
-
+    
   });
 
 }
