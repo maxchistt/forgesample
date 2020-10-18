@@ -13,17 +13,18 @@ function changeBG(bool) {
   viewer.setLightPreset(preset);
 }
 
-$("#bgPlus").click(() => {
-  changeBG(true);
+$('#bgPlus').click(function (e) { 
+  e.preventDefault();
+  alert("bg+");
   console.log("bg+");
 });
 
-$("#bgMinus").click(() => {
+$('#bgMinus').click(() => {
   changeBG(false);
   console.log("bg-");
 });
 
-$("#edges").click(function () {
+$('#edges').click(function () {
   viewer.setDisplayEdges((edgbool = !edgbool));
   console.log("edges");
 });
