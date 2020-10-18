@@ -13,12 +13,12 @@ function changeBG(bool) {
   viewer.setLightPreset(preset);
 }
 
-$("#+bg").click(() => {
+$("#bgPlus").click(() => {
   changeBG(true);
   console.log("bg+");
 });
 
-$("#-bg").click(() => {
+$("#bgMinus").click(() => {
   changeBG(false);
   console.log("bg-");
 });
