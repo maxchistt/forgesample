@@ -5,30 +5,25 @@ let edgbool = true;
 
 function changeBG(bool) {
   if (bool) {
-    if (preset <= 16) preset++;
+    //if (preset < 16) preset++;
+    preset++;
   } else {
-    if (preset >= 0) preset--;
+    //if (preset > 0) preset--;
+    preset--;
   }
   $("#bg").text(preset);
   viewer.setLightPreset(preset);
 }
 
 $(document).ready(()=>{
-  $('#bgPlus').click(function (e) { 
-    e.preventDefault();
-    console.log("bg+");
+  $('#bgPlus').click(() => {
     changeBG(true);
   });
   
   $('#bgMinus').click(() => {
     changeBG(false);
-    console.log("bg-");
   });
   
-  $('#edges').click(function () {
-    viewer.setDisplayEdges((edgbool = !edgbool));
-    console.log("edges");
-  });
 });
 
 
