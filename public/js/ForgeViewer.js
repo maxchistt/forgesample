@@ -32,14 +32,16 @@ function onDocumentLoadSuccess(doc) {
       }
       $('#bg').text(preset);
       viewer.setLightPreset(preset);
-      
     }
 
-    $('#+bg').click(function () {
+    $("#+bg").click(() => {
       changeBG(true);
+      console.log("bg+");
     });
-    $('#-bg').click(function () {
+
+    $("#-bg").click(() => {
       changeBG(false);
+      console.log("bg-");
     });
 
     let edgbool=true;
