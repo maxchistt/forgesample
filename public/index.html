@@ -22,22 +22,22 @@
   <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-      <ul class="nav navbar-nav left align-middle">
-        <li>
+      <ul class="nav navbar-nav left align-middle" style="width: 100%; display: flex; justify-content: left; align-items: center; flex-wrap: wrap;">
+        <li >
           <a href="http://developer.autodesk.com" target="_blank">
             <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20">
           </a>
           
         </li>
-        <li>
+        <li style="margin-right: auto; padding:0 1em;">
           <h3>MyApp</h3>
         </li>
-        <li>
-          <div class="container">
-            <button id="bgPlus" class="btn btn-primary">+bg</button>
-            <button id="bgMinus" class="btn btn-danger">-bg</button>
-            <div id="bg" class="btn btn-light"></div>
-          </div>
+        <li >
+          <div style="display: inline-block; margin: 1em;">
+            <button id="bgMinus" class="btn btn-danger" style="display: inline-block; ">-bg</button>
+          <div id="bg" style="display: inline-block; width: 2em; text-align: center;"></div>
+          <button id="bgPlus" class="btn btn-primary" style="display: inline-block; ">+bg</button> 
+          </div>  
         </li>
       </ul>
     </div>
